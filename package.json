@@ -1,0 +1,12 @@
+{
+  "name": "aibooking-root",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "postinstall": "npm --prefix aibooking2 install --omit=dev",
+    "start": "node aibooking2/src/app.js"
+  }
+} 
