@@ -40,11 +40,23 @@ export async function parseBookingFromText(text) {
   const data = await res.json();
   const content = data.choices?.[0]?.message?.content;
 
+  // Remove markdown fences or code block wrappers
+  let jsonText = content.trim();
+  if (jsonText.startsWith('```')) {
+    jsonText = jsonText.replace(/```(json)?/gi, '').trim();
+  }
+  // Extract first JSON braces region
+  const firstBrace = jsonText.indexOf('{');
+  const lastBrace = jsonText.lastIndexOf('}');
+  if (firstBrace !== -1 && lastBrace !== -1) {
+    jsonText = jsonText.substring(firstBrace, lastBrace + 1);
+  }
+
   let parsed;
   try {
-    parsed = JSON.parse(content);
+    parsed = JSON.parse(jsonText);
   } catch (e) {
-    console.error('Failed to parse LLM JSON', content);
+    console.error('Failed to parse LLM JSON', jsonText);
     throw new Error('LLM returned invalid JSON');
   }
 
