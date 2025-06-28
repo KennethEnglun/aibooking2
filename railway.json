@@ -1,0 +1,9 @@
+{
+  "build": {
+    "root": "aibooking2"
+  },
+  "deploy": {
+    "startCommand": "npm start",
+    "root": "aibooking2"
+  }
+} 

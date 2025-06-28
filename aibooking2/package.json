@@ -1,0 +1,24 @@
+{
+  "name": "aibooking2",
+  "version": "1.0.0",
+  "description": "AI 驅動的租用場地系統",
+  "main": "src/app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dayjs": "^1.11.10",
+    "dotenv": "^16.3.1",
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2",
+    "rrule": "^2.7.1",
+    "sqlite": "^4.2.1",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
